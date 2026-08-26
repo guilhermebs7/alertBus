@@ -1,11 +1,13 @@
 package alertbus.user_service.service;
 
 import alertbus.user_service.domain.entity.User;
+import alertbus.user_service.dto.request.LoginRequestDTO;
 import alertbus.user_service.dto.request.UserRequestDTO;
 import alertbus.user_service.dto.response.UserResponseDTO;
 import alertbus.user_service.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +20,12 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private TokenService tokenService;
+
     @Transactional
     public UserResponseDTO createUser(UserRequestDTO dto){
         if (userRepository.existsByEmail(dto.email())){
@@ -27,7 +35,7 @@ public class UserService {
         User user= User.builder()
                 .name(dto.name())
                 .email(dto.email())
-                .password(dto.password())
+                .password(passwordEncoder.encode(dto.password()))
                 .build();
 
         User savedUser= userRepository.save(user);
@@ -50,6 +58,16 @@ public class UserService {
                 .stream()
                 .map(user -> new UserResponseDTO(user.getId(), user.getName(), user.getEmail()))
                 .toList();
+    }
+
+    public String Login(LoginRequestDTO dto){
+        User user= userRepository.findByEmail(dto.email())
+                .orElseThrow(()-> new IllegalArgumentException("Usuário ou senha inválidos."));
+
+        if(!passwordEncoder.matches(dto.email(), user.getPassword())){
+            throw  new IllegalArgumentException("Usuário ou senha inválido");
+        }
+        return tokenService.generateToken(user);
     }
 
 
