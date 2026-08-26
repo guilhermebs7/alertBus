@@ -1,6 +1,8 @@
 package alertbus.user_service.controller;
 
+import alertbus.user_service.dto.request.LoginRequestDTO;
 import alertbus.user_service.dto.request.UserRequestDTO;
+import alertbus.user_service.dto.response.LoginResponseDTO;
 import alertbus.user_service.dto.response.UserResponseDTO;
 import alertbus.user_service.service.UserService;
 import org.apache.coyote.Response;
@@ -35,5 +37,10 @@ public class UserController {
     public ResponseEntity<List<UserResponseDTO>> getAllUsers(){
         List<UserResponseDTO> response = userService.getAllUsers();
         return ResponseEntity.ok(response);
+    }
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO dto){
+        String token= userService.Login(dto);
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 }
