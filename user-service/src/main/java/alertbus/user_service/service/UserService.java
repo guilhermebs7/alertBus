@@ -64,7 +64,7 @@ public class UserService {
         User user= userRepository.findByEmail(dto.email())
                 .orElseThrow(()-> new IllegalArgumentException("Usuário ou senha inválidos."));
 
-        if(!passwordEncoder.matches(dto.email(), user.getPassword())){
+        if(!passwordEncoder.matches(dto.password(), user.getPassword())){
             throw  new IllegalArgumentException("Usuário ou senha inválido");
         }
         return tokenService.generateToken(user);
