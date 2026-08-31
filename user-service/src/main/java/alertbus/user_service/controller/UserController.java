@@ -40,6 +40,7 @@ public class UserController {
     }
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO dto){
+        System.out.println("Tentando login para o email: " + dto.email());
         String token= userService.Login(dto);
         return ResponseEntity.ok(new LoginResponseDTO(token));
     }
