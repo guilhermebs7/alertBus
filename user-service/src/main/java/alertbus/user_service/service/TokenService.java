@@ -38,7 +38,7 @@ public class TokenService {
         try{
             Algorithm algorithm= Algorithm.HMAC256(secret);
             return JWT.require(algorithm)
-                    .withIssuer("alertbus-user0service")
+                    .withIssuer("alert-bus-service")
                     .build()
                     .verify(token)
                     .getSubject();
