@@ -1,6 +1,7 @@
 package alertbus.user_service.service;
 
 import alertbus.user_service.domain.entity.User;
+import alertbus.user_service.domain.entity.UserRole;
 import alertbus.user_service.dto.request.LoginRequestDTO;
 import alertbus.user_service.dto.request.UserRequestDTO;
 import alertbus.user_service.dto.response.UserResponseDTO;
@@ -32,10 +33,13 @@ public class UserService {
             throw new IllegalArgumentException("E-mail já cadastrado no sistema.");
         }
 
+        UserRole role= dto.role() != null ? dto.role() : UserRole.PASSENGER;
+
         User user= User.builder()
                 .name(dto.name())
                 .email(dto.email())
                 .password(passwordEncoder.encode(dto.password()))
+                .role(role)
                 .build();
 
         User savedUser= userRepository.save(user);
