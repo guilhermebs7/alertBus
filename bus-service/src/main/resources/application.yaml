@@ -1,3 +1,20 @@
+server:
+  port: 8082
+
 spring:
   application:
     name: bus-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/bus_db
+    username: ${BUS_DB_USER}
+    password: ${BUS_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
