@@ -1,3 +1,30 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: api-gateway
+
+  cloud:
+    gateway:
+      #  configuração global de CORD para aceitar requisições do front
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+
+      # mapeamento dos microserviços
+      routes:
+        # Rota para o User Service
+        - id: user-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/users/**, /auth/**
+
