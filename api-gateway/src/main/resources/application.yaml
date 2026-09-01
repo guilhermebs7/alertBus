@@ -28,3 +28,7 @@ spring:
           predicates:
             - Path=/users/**, /auth/**
 
+        - id: bus-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/buses/**, /routes/**
