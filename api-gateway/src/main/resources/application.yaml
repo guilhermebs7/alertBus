@@ -30,7 +30,7 @@ spring:
         - id: bus-service
           uri: http://localhost:8082
           predicates:
-            - Path=/buses/**, /routes/**
+            - Path=/buses/**
 
         - id: route-service
           uri: http://localhost:8083
