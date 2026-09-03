@@ -31,6 +31,19 @@ services:
     volumes:
       - bus_db_data:/var/lib/postgresql/data
 
+  route-db:
+    image: postgres:16-alpine
+    container_name: alertbus-route-db
+    environment:
+      POSTGRES_DB: ${ROUTE_DB_NAME}
+      POSTGRES_USER: ${ROUTE_DB_USER}
+      POSTGRES_PASSWORD: ${ROUTE_DB_PASSWORD}
+    ports:
+      - "5434:5432"
+    volumes:
+      - route_db_data:/var/lib/postgresql/data
+
 volumes:
   user_db_data:
   bus_db_data:
+  route_db_data:
