@@ -1,3 +1,21 @@
+server:
+  port: 8083
+
 spring:
   application:
     name: route-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/route_db
+    username: ${ROUTE_DB_USER}
+    password: ${ROUTE_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
