@@ -6,7 +6,7 @@ spring:
     name: route-service
 
   datasource:
-    url: jdbc:postgresql://localhost:5433/route_db
+    url: jdbc:postgresql://localhost:5434/route_db
     username: ${ROUTE_DB_USER}
     password: ${ROUTE_DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
