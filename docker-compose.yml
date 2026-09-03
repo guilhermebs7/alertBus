@@ -43,7 +43,22 @@ services:
     volumes:
       - route_db_data:/var/lib/postgresql/data
 
+  trip-db:
+    image: postgres:16-alpine
+    container_name: alertbus-trip-db
+    environment:
+      POSTGRES_DB: ${TRIP_DB_NAME}
+      POSTGRES_USER: ${TRIP_DB_USER}
+      POSTGRES_PASSWORD: ${TRIP_DB_PASSWORD}
+    ports:
+      - "5435:5432"
+    volumes:
+      - trip_db_data:/var/lib/postgresql/data
+
+
+
 volumes:
   user_db_data:
   bus_db_data:
   route_db_data:
+  trip_db_data:
