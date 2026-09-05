@@ -67,6 +67,15 @@ services:
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
 
+  eta-redis:
+    image: redis:7-alpine
+    container_name: alertbus-eta-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - eta_redis_data:/data
+
+
 
 
 volumes:
@@ -75,3 +84,4 @@ volumes:
   route_db_data:
   trip_db_data:
   rabbitmq_data:
+  eta_redis_data:
