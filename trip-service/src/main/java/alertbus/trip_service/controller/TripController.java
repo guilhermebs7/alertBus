@@ -2,6 +2,7 @@ package alertbus.trip_service.controller;
 
 import alertbus.trip_service.dto.TripRequestDTO;
 import alertbus.trip_service.dto.TripResponseDTO;
+import alertbus.trip_service.entity.TripStatus;
 import alertbus.trip_service.service.TripService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,13 @@ public class TripController {
     public ResponseEntity<TripResponseDTO> create(@RequestBody @Valid TripRequestDTO dto){
         TripResponseDTO created= tripService.create(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    }
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<TripResponseDTO> updateStatus(
+            @PathVariable Long id,
+            @RequestParam TripStatus status
+    ) {
+        TripResponseDTO updatedTrip = tripService.updateStatus(id, status);
+        return ResponseEntity.ok(updatedTrip);
     }
 }
