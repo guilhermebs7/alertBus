@@ -30,14 +30,14 @@ public class TripService {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<TripResponseDTO> findAll(){
         return tripRepository.findAll().stream()
                 .map(TripResponseDTO::fromEntity)
                 .toList();
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public TripResponseDTO findById(Long id){
         Trip trip= tripRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Viagem não encontrada"));
