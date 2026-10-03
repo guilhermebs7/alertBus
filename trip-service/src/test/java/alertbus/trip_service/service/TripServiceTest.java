@@ -10,8 +10,6 @@ import alertbus.trip_service.entity.Trip;
 import alertbus.trip_service.entity.TripStatus;
 import alertbus.trip_service.repository.TripRepository;
 import feign.FeignException;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
