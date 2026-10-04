@@ -4,23 +4,7 @@
 
 **Plataforma de microsserviços para gestão de frota, rotas e viagens de ônibus, com estimativa de chegada (ETA) em tempo real e notificações por eventos.**
 
-<br/>
 
-<table>
-  <tr>
-    <td align="center" width="110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="56" height="56" alt="Java"/><br/><sub><b>Java 21</b></sub></td>
-    <td align="center" width="110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="56" height="56" alt="Spring"/><br/><sub><b>Spring Boot</b></sub></td>
-    <td align="center" width="110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" width="56" height="56" alt="Maven"/><br/><sub><b>Maven</b></sub></td>
-    <td align="center" width="110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="56" height="56" alt="PostgreSQL"/><br/><sub><b>PostgreSQL 16</b></sub></td>
-    <td align="center" width="110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rabbitmq/rabbitmq-original.svg" width="56" height="56" alt="RabbitMQ"/><br/><sub><b>RabbitMQ</b></sub></td>
-    <td align="center" width="110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" width="56" height="56" alt="Redis"/><br/><sub><b>Redis 7</b></sub></td>
-    <td align="center" width="110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="56" height="56" alt="Docker"/><br/><sub><b>Docker</b></sub></td>
-    <td align="center" width="110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-original.svg" width="56" height="56" alt="JUnit"/><br/><sub><b>JUnit 5</b></sub></td>
-    <td align="center" width="110"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" width="56" height="56" alt="Swagger"/><br/><sub><b>OpenAPI</b></sub></td>
-  </tr>
-</table>
-
-<br/>
 
 ![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.1.1-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
